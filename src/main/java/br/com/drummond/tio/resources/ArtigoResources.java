@@ -84,6 +84,23 @@ public class ArtigoResources {
 		}
 	}
 	
+	
+	@GetMapping("/titulo-area-datas")
+	public ResponseEntity<?> pegarArtigosPeloTituloOuAreaNumIntervaloDeDatas(@RequestParam("search") String search,
+			@RequestParam("from") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate from,
+			@RequestParam("to") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate to) {
+		List<Artigo> artigos = artigoRepository
+				.findByDataPublicacaoBetweenWithTituloContainingIgnoreCaseOrAreaContainingIgnoreCase(from, to, search,
+						search);
+		if (artigos.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NO_CONTENT,
+					"Não existem artigos registrados com essa procura!");
+		} else {
+			return ResponseEntity.ok(artigos);
+		}
+	}
+	 
+	
 	@PostMapping
 	public ResponseEntity<Artigo> cadastrarArtigo(@Valid @RequestBody Artigo artigo) {
 		Artigo artigoParaCadastrar = artigoRepository.save(artigo);
