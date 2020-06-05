@@ -1,6 +1,5 @@
 package br.com.drummond.tio.model;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;

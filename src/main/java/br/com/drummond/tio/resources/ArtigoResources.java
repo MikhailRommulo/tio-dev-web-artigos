@@ -1,6 +1,6 @@
 package br.com.drummond.tio.resources;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +53,7 @@ public class ArtigoResources {
 	}
 	
 	@GetMapping("/datas")
-	public ResponseEntity<?> pegarArtigosEntreDatas(@RequestParam("from") @DateTimeFormat(pattern="yyyy-MM-dd") Date from, @RequestParam("to") @DateTimeFormat(pattern="yyyy-MM-dd") Date to) {
+	public ResponseEntity<?> pegarArtigosEntreDatas(@RequestParam("from") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate from, @RequestParam("to") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate to) {
 		
 		List<Artigo> artigos = artigoRepository.findByDataPublicacaoBetween(from, to);
 		if(artigos.isEmpty()) {
