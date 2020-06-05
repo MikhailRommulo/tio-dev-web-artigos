@@ -1,6 +1,7 @@
 package br.com.drummond.tio.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Artigo {
 	
 	
 	@NotNull
-	private Date dataPublicacao;
+	private LocalDate dataPublicacao;
 	 
 	public int getId() {
 		return id;
@@ -61,11 +62,11 @@ public class Artigo {
 	}
 
 	
-	public Date getDataPublicacao() {
+	public LocalDate getDataPublicacao() {
 		return dataPublicacao;
 	}
 
-	public void setDataPublicacao(Date dataPublicacao) {
+	public void setDataPublicacao(LocalDate dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
 	}
 	 
