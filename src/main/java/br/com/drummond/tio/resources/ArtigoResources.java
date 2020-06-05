@@ -64,6 +64,26 @@ public class ArtigoResources {
 		
 	}
 	
+	@GetMapping("/titulo-area")
+	public ResponseEntity<?> pegarArtigosPeloTituloOuArea(@RequestParam("search") String search) {
+		List<Artigo> artigos = artigoRepository.findByTituloContainingIgnoreCaseOrAreaContainingIgnoreCase(search, search);
+		if(artigos.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Não existem artigos registrados com essa procura!");
+		}else {
+			return ResponseEntity.ok(artigos);
+		}
+	}
+	
+	@GetMapping("/link")
+	public ResponseEntity<Artigo> pegarArtigosPeloLink(@RequestParam("link") String link) {
+		Optional<Artigo> artigo = artigoRepository.findByHiperLink(link);
+		if(artigo.isPresent()) {
+			return ResponseEntity.ok(artigo.get());
+		}else {
+			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Não existe artigo com esse link!");
+		}
+	}
+	
 	@PostMapping
 	public ResponseEntity<Artigo> cadastrarArtigo(@Valid @RequestBody Artigo artigo) {
 		Artigo artigoParaCadastrar = artigoRepository.save(artigo);
