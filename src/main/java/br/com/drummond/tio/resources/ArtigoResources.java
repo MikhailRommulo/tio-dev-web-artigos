@@ -83,8 +83,7 @@ public class ArtigoResources {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Não existe artigo com esse link!");
 		}
 	}
-	
-	
+		
 	@GetMapping("/titulo-area-datas")
 	public ResponseEntity<?> pegarArtigosPeloTituloOuAreaNumIntervaloDeDatas(@RequestParam("search") String search,
 			@RequestParam("from") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate from,
@@ -100,7 +99,6 @@ public class ArtigoResources {
 		}
 	}
 	 
-	
 	@PostMapping
 	public ResponseEntity<Artigo> cadastrarArtigo(@Valid @RequestBody Artigo artigo) {
 		Artigo artigoParaCadastrar = artigoRepository.save(artigo);

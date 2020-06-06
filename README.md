@@ -43,8 +43,88 @@ https://tio-dev-web.herokuapp.com/artigos/1
   "dataPublicacao": "2020-06-02"
 }
 </pre>
-<h2>POST</h2>
-<p>Para cadastrar uma artigo, utilize o verbo HTTP POST utlizando a seguinte URI abaixo</p>
+<h3>GET entre intervalo de datas</h3>
+<p>para o retorno de registros entre datas, utilize o verbo HTTP GET com a URI abaixo, no caso trazendo os registros entre 01/05/2019 e 31/05/2019</p>
+http://localhost:8801/artigos/datas?from=2019-05-01&to=2019-05-31
+<pre>
+[
+  {
+    "id": 5,
+    "titulo": "teste data 2",
+    "area": "teste area 2",
+    "hiperLink": "teste link data 2",
+    "dataPublicacao": "2019-05-04"
+  },
+  {
+    "id": 6,
+    "titulo": "teste data 3",
+    "area": "teste area 3",
+    "hiperLink": "teste link data 3",
+    "dataPublicacao": "2019-05-15"
+  }
+]
+</pre>
+<h3>GET por título ou área</h3>
+<p>para o retorno dos registros por seu valor parcial de título ou área, utilize o verbo HTTP GET com a URI abaixo, no caso retornando os que  possuem "at" em alguma parte de título ou área</p>
+http://localhost:8801/artigos//titulo-area?search=at
+<pre>
+[
+  {
+    "id": 4,
+    "titulo": "teste data 1",
+    "area": "teste area 1",
+    "hiperLink": "teste link data 1",
+    "dataPublicacao": "2019-06-04"
+  },
+  {
+    "id": 5,
+    "titulo": "teste data 2",
+    "area": "teste area 2",
+    "hiperLink": "teste link data 2",
+    "dataPublicacao": "2019-05-04"
+  },
+  {
+    "id": 6,
+    "titulo": "teste data 3",
+    "area": "teste area 3",
+    "hiperLink": "teste link data 3",
+    "dataPublicacao": "2019-05-15"
+  }
+]
+</pre>
+<h3>GET pelo link</h3>
+<p>para o retorno de registros por seu link, utilize o verbo HTTP GET com a URI abaixo, no caso retornando o artigo com o link "teste link 3"</p>
+http://localhost:8801/artigos/link?link=teste link 3
+<pre>
+{
+  "id": 3,
+  "titulo": "teste titulo 3",
+  "area": "teste area 3",
+  "hiperLink": "teste link 3",
+  "dataPublicacao": "2020-06-04"
+}
+</pre>
+<h3>GET por titulo ou área, pela data</h3>
+<p>para o retorno de registros por data, e seu título ou área, utilize o verbo HTTP GET com a URI abaixo, no caso retornando os artigos com "es" em alguma parte do título ou área, e pertecendo ao intervalo de 04/05/2019 e 31/05/2019</p>http://localhost:8801/artigos/titulo-area-datas?search=es&from=2019-05-04&to=2019-05-3
+<pre>
+[
+  {
+    "id": 5,
+    "titulo": "teste data 2",
+    "area": "teste area 2",
+    "hiperLink": "teste link data 2",
+    "dataPublicacao": "2019-05-04"
+  },
+  {
+    "id": 6,
+    "titulo": "teste data 3",
+    "area": "teste area 3",
+    "hiperLink": "teste link data 3",
+    "dataPublicacao": "2019-05-15"
+  }
+]
+</pre>
+<h2>POST</h2><p>Para cadastrar uma artigo, utilize o verbo HTTP POST utlizando a seguinte URI abaixo</p>
 https://tio-dev-web.herokuapp.com/artigos
 <p>E passando um JSON como no exemplo no corpo  da requisição, seguindo as mesmas chaves só modificando valor</p>
 <pre>
