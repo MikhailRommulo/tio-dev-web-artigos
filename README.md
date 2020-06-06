@@ -45,7 +45,7 @@ https://tio-dev-web.herokuapp.com/artigos/1
 </pre>
 <h3>GET entre intervalo de datas</h3>
 <p>para o retorno de registros entre datas, utilize o verbo HTTP GET com a URI abaixo, no caso trazendo os registros entre 01/05/2019 e 31/05/2019</p>
-http://localhost:8801/artigos/datas?from=2019-05-01&to=2019-05-31
+https://tio-dev-web.herokuapp.com/artigos/datas?from=2019-05-01&to=2019-05-31
 <pre>
 [
   {
@@ -66,7 +66,7 @@ http://localhost:8801/artigos/datas?from=2019-05-01&to=2019-05-31
 </pre>
 <h3>GET por título ou área</h3>
 <p>para o retorno dos registros por seu valor parcial de título ou área, utilize o verbo HTTP GET com a URI abaixo, no caso retornando os que  possuem "at" em alguma parte de título ou área</p>
-http://localhost:8801/artigos//titulo-area?search=at
+https://tio-dev-web.herokuapp.com/artigos//titulo-area?search=at
 <pre>
 [
   {
@@ -94,7 +94,7 @@ http://localhost:8801/artigos//titulo-area?search=at
 </pre>
 <h3>GET pelo link</h3>
 <p>para o retorno de registros por seu link, utilize o verbo HTTP GET com a URI abaixo, no caso retornando o artigo com o link "teste link 3"</p>
-http://localhost:8801/artigos/link?link=teste link 3
+https://tio-dev-web.herokuapp.com/artigos/link?link=teste link 3
 <pre>
 {
   "id": 3,
@@ -105,7 +105,7 @@ http://localhost:8801/artigos/link?link=teste link 3
 }
 </pre>
 <h3>GET por titulo ou área, pela data</h3>
-<p>para o retorno de registros por data, e seu título ou área, utilize o verbo HTTP GET com a URI abaixo, no caso retornando os artigos com "es" em alguma parte do título ou área, e pertecendo ao intervalo de 04/05/2019 e 31/05/2019</p>http://localhost:8801/artigos/titulo-area-datas?search=es&from=2019-05-04&to=2019-05-3
+<p>para o retorno de registros por data, e seu título ou área, utilize o verbo HTTP GET com a URI abaixo, no caso retornando os artigos com "es" em alguma parte do título ou área, e pertecendo ao intervalo de 04/05/2019 e 31/05/2019</p>https://tio-dev-web.herokuapp.com/artigos/titulo-area-datas?search=es&from=2019-05-04&to=2019-05-3
 <pre>
 [
   {
